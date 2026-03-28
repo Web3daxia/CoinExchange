@@ -1,0 +1,43 @@
+# 本系统开发者联系方式Tg：@arenjian，如有问题欢迎咨询。拒绝任何国内与大陆项目，请勿打扰
+
+# KYC模块配置文件
+
+# 文件上传配置
+file:
+  upload-dir: uploads/kyc
+  max-file-size: 10MB
+  max-request-size: 50MB
+
+# OCR配置（示例，需要根据实际OCR服务商配置）
+ocr:
+  provider: aliyun  # aliyun, tencent, baidu
+  api-key: your-api-key
+  api-secret: your-api-secret
+
+# 人脸识别配置（示例，需要根据实际服务商配置）
+face-recognition:
+  provider: faceplusplus  # faceplusplus, aliyun, tencent
+  api-key: your-api-key
+  api-secret: your-api-secret
+  match-threshold: 0.8  # 人脸匹配阈值
+
+# 语音识别配置（示例）
+speech:
+  provider: aliyun  # aliyun, tencent
+  api-key: your-api-key
+  api-secret: your-api-secret
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

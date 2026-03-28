@@ -1,0 +1,50 @@
+# 本系统开发者联系方式Tg：@arenjian，如有问题欢迎咨询。拒绝任何国内与大陆项目，请勿打扰
+
+spring:
+  application:
+    name: proof-of-reserves
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://45.207.193.206:3306/coin?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: JGHbtyh9892h
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+    packages-to-scan:
+      - com.cryptotrade.proofofreserves.entity
+      - com.cryptotrade.user.entity
+      - com.cryptotrade.wallet.entity
+    entity-scan:
+      - com.cryptotrade.proofofreserves.entity
+      - com.cryptotrade.user.entity
+      - com.cryptotrade.wallet.entity
+  redis:
+    host: 45.207.193.206
+    port: 6379
+    timeout: 2000ms
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+
+server:
+  port: 8103
+
+logging:
+  level:
+    root: INFO
+    com.cryptotrade.proofofreserves: DEBUG
+    org.springframework.web: INFO
+    org.hibernate.SQL: DEBUG
+
+
+
+
+

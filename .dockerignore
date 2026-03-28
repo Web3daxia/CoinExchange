@@ -1,0 +1,58 @@
+# Git 相关
+.git
+.gitignore
+.gitattributes
+
+# IDE 相关
+.idea
+.vscode
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings
+
+# Maven 相关
+target/
+!api/target/api-1.0.0.jar
+.mvn/wrapper/maven-wrapper.jar
+
+# 日志文件
+*.log
+logs/
+
+# 临时文件
+*.tmp
+*.bak
+*.swp
+*~
+
+# 操作系统相关
+.DS_Store
+Thumbs.db
+
+# Docker 相关
+docker-compose.yml
+Dockerfile
+.dockerignore
+
+# 文档
+*.md
+!README.md
+API文档/
+
+# 数据库脚本（已通过 volume 挂载）
+database/
+
+# 其他
+node_modules/
+.env
+.env.local
+
+
+
+
+
+
+

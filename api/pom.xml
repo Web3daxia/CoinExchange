@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 本系统开发者联系方式Tg：@arenjian，如有问题欢迎咨询。拒绝任何国内与大陆项目，请勿打扰 -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.cryptotrade</groupId>
+        <artifactId>crypto-exchange</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>api</artifactId>
+    <packaging>jar</packaging>
+    <name>API Module</name>
+    <description>API网关模块 - 整合所有模块，提供统一入口</description>
+
+    <dependencies>
+        <!-- Common Module -->
+        <dependency>
+            <groupId>com.cryptotrade</groupId>
+            <artifactId>common</artifactId>
+        </dependency>
+
+        <!-- User Module -->
+        <dependency>
+            <groupId>com.cryptotrade</groupId>
+            <artifactId>user</artifactId>
+        </dependency>
+
+        <!-- Wallet Module -->
+        <dependency>
+            <groupId>com.cryptotrade</groupId>
+            <artifactId>wallet</artifactId>
+        </dependency>
+
+        <!-- Spot Trading Module -->
+        <dependency>
+            <groupId>com.cryptotrade</groupId>
+            <artifactId>spot-trading</artifactId>
+        </dependency>
+
+        <!-- Futures USDT Module -->
+        <dependency>
+            <groupId>com.cryptotrade</groupId>
+            <artifactId>futures-usdt</artifactId>
+        </dependency>
+
+        <!-- Futures Coin Module -->
+        <dependency>
+            <groupId>com.cryptotrade</groupId>
+            <artifactId>futures-coin</artifactId>
+        </dependency>
+
+        <!-- Robot Module -->
+        <dependency>
+            <groupId>com.cryptotrade</groupId>
+            <artifactId>robot</artifactId>
+        </dependency>
+
+        <!-- System Management Module -->
+        <dependency>
+            <groupId>com.cryptotrade</groupId>
+            <artifactId>system-management</artifactId>
+        </dependency>
+
+        <!-- Spring Boot Starter Web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- Spring Boot Starter Data JPA -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <!-- MySQL Driver -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <!-- Redis -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <!-- Swagger -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+        </dependency>
+
+        <!-- Mail -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
+
+        <!-- Actuator (用于健康检查) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <mainClass>com.cryptotrade.CryptoExchangeApplication</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+

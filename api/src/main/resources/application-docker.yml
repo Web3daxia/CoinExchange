@@ -1,0 +1,119 @@
+# 本系统开发者联系方式Tg：@arenjian，如有问题欢迎咨询。拒绝任何国内与大陆项目，请勿打扰
+
+spring:
+  application:
+    name: crypto-exchange-api
+  main:
+    allow-bean-definition-overriding: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://mysql:3306/coin?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true}
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:JGHbtyh9892h}
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+    packages-to-scan:
+      - com.cryptotrade.user.entity
+      - com.cryptotrade.wallet.entity
+      - com.cryptotrade.spot.entity
+      - com.cryptotrade.futures.usdt.entity
+      - com.cryptotrade.futures.coin.entity
+      - com.cryptotrade.robot.entity
+    entity-scan:
+      - com.cryptotrade.user.entity
+      - com.cryptotrade.wallet.entity
+      - com.cryptotrade.spot.entity
+      - com.cryptotrade.futures.usdt.entity
+      - com.cryptotrade.futures.coin.entity
+      - com.cryptotrade.robot.entity
+  redis:
+    host: ${SPRING_REDIS_HOST:redis}
+    port: ${SPRING_REDIS_PORT:6379}
+    password: ${SPRING_REDIS_PASSWORD:}
+    timeout: 5000ms
+    lettuce:
+      pool:
+        max-active: 20
+        max-idle: 10
+        min-idle: 5
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USERNAME:your-email@gmail.com}
+    password: ${MAIL_PASSWORD:your-password}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 50MB
+      file-size-threshold: 2KB
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+  max-file-size: 10MB
+  max-request-size: 50MB
+
+# JWT配置
+jwt:
+  secret: ${JWT_SECRET:crypto-exchange-secret-key-2024}
+  expiration: 86400000  # 24小时
+
+# 验证码配置
+verification:
+  code:
+    expire: 300  # 5分钟
+    length: 6
+
+# Swagger配置
+springfox:
+  documentation:
+    swagger-ui:
+      enabled: true
+      path: /swagger-ui.html
+
+# 日志配置
+logging:
+  level:
+    root: INFO
+    com.cryptotrade: INFO
+    org.springframework.web: INFO
+    org.hibernate.SQL: WARN
+  file:
+    name: /app/logs/application.log
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n"
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n"
+
+# Actuator 配置（用于健康检查）
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: when-authorized
+
